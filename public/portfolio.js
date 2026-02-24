@@ -29,34 +29,37 @@ fetch(`/api/user/${username}`)
     // ---------- INTRO ----------
     document.getElementById("contactEmail").textContent = user.email;
     document.getElementById("contactPhone").textContent = user.contact || "Not provided";
+    // ---------- SKILLS ----------
     const noSkillsText = document.getElementById("noSkillsText");
     const skillsGroups = document.getElementById("skillsGroups");
     const coreSkillsContainer = document.getElementById("coreSkills");
     const secondarySkillsContainer = document.getElementById("secondarySkills");
 
-    // clear previous state
     coreSkillsContainer.innerHTML = "";
     secondarySkillsContainer.innerHTML = "";
 
-    if (!user.skills || user.skills.length === 0) {
-      // show empty state
+    const core = user.skills?.core || [];
+    const working = user.skills?.working || [];
+
+    if (core.length === 0 && working.length === 0) {
       noSkillsText.style.display = "block";
       skillsGroups.style.display = "none";
     } else {
-      // show skills
       noSkillsText.style.display = "none";
       skillsGroups.style.display = "block";
 
-      user.skills.forEach((skill, index) => {
+      core.forEach(skill => {
         const pill = document.createElement("span");
         pill.className = "skill-pill";
         pill.textContent = skill;
+        coreSkillsContainer.appendChild(pill);
+      });
 
-        if (index < 4) {
-          coreSkillsContainer.appendChild(pill);
-        } else {
-          secondarySkillsContainer.appendChild(pill);
-        }
+      working.forEach(skill => {
+        const pill = document.createElement("span");
+        pill.className = "skill-pill secondary";
+        pill.textContent = skill;
+        secondarySkillsContainer.appendChild(pill);
       });
     }
     const linkedin = document.getElementById("contactLinkedin");
@@ -67,7 +70,8 @@ fetch(`/api/user/${username}`)
       linkedin.style.display = "none";
     }
     document.getElementById("name").textContent = user.name;
-    document.getElementById("degree").textContent = user.degree;
+    document.getElementById("degree-intro").textContent = user.degree;
+    document.getElementById("degree-edu").textContent = user.degree;
     document.getElementById("email").textContent = user.email;
 
     document.getElementById("semester-intro").textContent =
