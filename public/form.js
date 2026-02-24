@@ -108,21 +108,36 @@ form.addEventListener("submit", (e) => {
             });
         }
     }
+    // ===== SKILLS =====
+    const coreSkills = form.coreSkills.value
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean);
+
+    const workingSkills = form.workingSkills.value
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean);
 
     const data = {
-        name: form.name.value,
-        email: form.email.value,
-        contact: form.contact.value,
-        linkedin: form.linkedin.value,
-        degree: form.degree.value,
-        collegeName: form.collegeName.value,
+        name: toTitleCase(form.name.value),
+        email: form.email.value.toLowerCase(),
+
+        degree: form.degree.value.toUpperCase(),
+        stream: form.stream.value.toUpperCase(),
+        collegeName: toTitleCase(form.collegeName.value),
+
         admissionYear: form.admissionYear.value,
         graduationYear: form.graduationYear.value,
         currentSemester: form.currentSemester.value,
 
-        twelfthStream: form.twelfthStream.value,
-        tenthPercent: form.tenthPercent.value,
-        twelfthPercent: form.twelfthPercent.value,
+        contact: form.contact.value,
+        linkedin: form.linkedin.value,
+
+        skills: {
+            core: coreSkills,
+            working: workingSkills
+        },
 
         hasExperience: form.hasExperience.value,
         experiences
@@ -151,50 +166,6 @@ form.addEventListener("submit", (e) => {
 });
 
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log("SUBMIT CLICKED"); // 👈 ADD THIS
-    const experiences = [];
-
-    const companies = document.getElementsByName("companyName[]");
-    const roles = document.getElementsByName("role[]");
-    const fromDates = document.getElementsByName("from[]");
-    const toDates = document.getElementsByName("to[]");
-
-    for (let i = 0; i < companies.length; i++) {
-        if (companies[i].value.trim() !== "") {
-            experiences.push({
-                company: companies[i].value,
-                role: roles[i].value,
-                from: fromDates[i].value,
-                to: toDates[i].value
-            });
-        }
-    }
-
-    const data = {
-        name: toTitleCase(form.name.value),
-        email: form.email.value.toLowerCase(),
-        skills: form.skills.value
-            .split(",")
-            .map(skill => skill.trim())
-            .filter(Boolean),
-        degree: form.degree.value.toUpperCase(),
-        stream: form.stream.value.toUpperCase(),
-        collegeName: toTitleCase(form.collegeName.value),
-
-        admissionYear: form.admissionYear.value,
-        graduationYear: form.graduationYear.value,
-        currentSemester: form.currentSemester.value,
-
-        contact: form.contact.value,
-        linkedin: form.linkedin.value,
-
-        experiences: experiences
-    };
-
-    console.log("FINAL PORTFOLIO DATA:", data);
-});
 function toTitleCase(str) {
     return str
         .toLowerCase()
