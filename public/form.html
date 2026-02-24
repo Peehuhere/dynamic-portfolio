@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Portfolio</title>
+    <link rel="stylesheet" href="form.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Create Your Portfolio</h1>
+        <p class="subtitle">Your story, your journey</p>
+
+        <form id="portfolioForm">
+
+            <!-- BASIC INFO -->
+            <div class="section">
+                <h2>Basic Info</h2>
+
+                <div class="field">
+                    <label>Name</label>
+                    <input type="text" name="name" required />
+                </div>
+
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" name="email" required />
+                </div>
+
+                <label>Contact Number</label>
+                <input type="tel" name="contact" placeholder="+91 XXXXX XXXXX" />
+
+                <label>LinkedIn Profile</label>
+                <input type="url" name="linkedin" placeholder="https://linkedin.com/in/username" />
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+
+                <label>Degree (ALL CAPS)</label>
+                <input type="text" name="degree" placeholder="BTECH / BSC / MCA" style="text-transform: uppercase;"
+                    required />
+
+                <label>College Name</label>
+                <input type="text" name="collegeName" placeholder="IITM College of Engineering" required />
+
+                <!-- Admission & Graduation -->
+                <div class="field split">
+                    <div>
+                        <label>Admission Year</label>
+                        <select name="admissionYear" id="admissionYear"></select>
+                    </div>
+                    <div>
+                        <label>Graduation Year</label>
+                        <select name="graduationYear" id="graduationYear"></select>
+                    </div>
+                </div>
+
+                <!-- CURRENT SEM -->
+                <div class="field">
+                    <label>Current Semester</label>
+                    <select name="currentSemester">
+                        <option value="1">1st</option>
+                        <option value="2">2nd</option>
+                        <option value="3">3rd</option>
+                        <option value="4">4th</option>
+                        <option value="5">5th</option>
+                        <option value="6">6th</option>
+                        <option value="7">7th</option>
+                        <option value="8">8th</option>
+                    </select>
+                </div>
+
+                <label>Stream (ALL CAPS)</label>
+                <input type="text" name="stream" placeholder="CSE / ECE / IT" style="text-transform: uppercase;"
+                    required />
+                <label>Skills (comma separated)</label>
+                <input type="text" name="skills" placeholder="HTML, CSS, JavaScript, Node.js" />
+                
+                <!-- SCHOOL DETAILS -->
+                <div class="field">
+                    <label>12th Stream</label>
+                    <select name="twelfthStream">
+                        <option value="Science">Science</option>
+                        <option value="Commerce">Commerce</option>
+                        <option value="Arts">Arts</option>
+                    </select>
+                </div>
+
+                <div class="field split">
+                    <div>
+                        <label>10th Percentage</label>
+                        <input type="number" name="tenthPercent" min="0" max="100" />
+                    </div>
+                    <div>
+                        <label>12th Percentage</label>
+                        <input type="number" name="twelfthPercent" min="0" max="100" />
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div class="section">
+                <h2>Experience</h2>
+
+                <div class="radio-group">
+                    <span>Any prior experience?</span>
+
+                    <label>
+                        <input type="radio" name="hasExperience" value="yes">
+                        Yes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="hasExperience" value="no" checked>
+                        No
+                    </label>
+                </div>
+
+                <!-- THIS MUST BE RIGHT BELOW RADIOS -->
+                <div id="experienceBox" class="experience-box">
+                    <div id="experienceList">
+
+                        <div class="experience-item">
+                            <div class="field">
+                                <label>Company Name</label>
+                                <input type="text" name="companyName[]">
+                            </div>
+
+                            <div class="field">
+                                <label>Role</label>
+                                <input type="text" name="role[]">
+                            </div>
+
+                            <div class="field split">
+                                <div>
+                                    <label>From</label>
+                                    <input type="month" name="from[]">
+                                </div>
+                                <div>
+                                    <label>To</label>
+                                    <input type="month" name="to[]">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button type="button" id="addExperience" class="add-btn">
+                        + Add more experience
+                    </button>
+                </div>
+            </div>
+            <button type="submit">Create Portfolio</button>
+
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>

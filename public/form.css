@@ -1,0 +1,283 @@
+/* ====== RESET & BASE ====== */
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(1200px circle at top left,
+            #c7d2fe 0%,
+            transparent 40%),
+        radial-gradient(1200px circle at bottom right,
+            #fbcfe8 0%,
+            transparent 40%),
+        #0f172a;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    color: #0f172a;
+}
+
+/* ====== CONTAINER ====== */
+.container {
+    width: 100%;
+    max-width: 720px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    padding: 3rem;
+    box-shadow:
+        0 30px 80px rgba(15, 23, 42, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ====== HEADER ====== */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.subtitle {
+    text-align: center;
+    margin-top: 0.4rem;
+    margin-bottom: 2.5rem;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* ====== SECTIONS ====== */
+.section {
+    margin-bottom: 2.8rem;
+}
+
+.section h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #6366f1;
+    margin-bottom: 1.2rem;
+}
+
+/* ====== FORM FIELDS ====== */
+.field {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: #334155;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.25s ease;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 2.8rem 0.75rem 0.85rem;
+    /* extra right space for arrow */
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 0.25s ease;
+}
+
+/* REMOVE DEFAULT ARROW */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #6366f1 50%),
+        linear-gradient(135deg, #6366f1 50%, transparent 50%),
+        linear-gradient(to right, transparent, transparent);
+    background-position:
+        calc(100% - 20px) calc(50% - 4px),
+        calc(100% - 14px) calc(50% - 4px),
+        calc(100% - 2.5rem) 50%;
+    background-size:
+        6px 6px,
+        6px 6px,
+        1px 1.8rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+select:hover {
+    border-color: #c7d2fe;
+}
+
+/* ====== SPLIT ROWS ====== */
+.split {
+    display: flex;
+    gap: 1.2rem;
+}
+
+@media (max-width: 640px) {
+    .split {
+        flex-direction: column;
+    }
+}
+
+/* ====== RADIO GROUP ====== */
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    font-size: 0.85rem;
+    color: #334155;
+}
+
+.radio-group span {
+    font-weight: 500;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+/* ====== EXPERIENCE BOX (ANIMATED) ====== */
+.experience-box {
+    margin-top: 1.5rem;
+    padding-left: 0.2rem;
+    display: none;
+}
+
+.experience-box.active {
+    display: block;
+}
+
+/* ====== BUTTON ====== */
+button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.9rem;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg,
+            #6366f1,
+            #8b5cf6,
+            #ec4899);
+    background-size: 200%;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-position: right;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+
+/* EXPERIENCE ITEM */
+.experience-item {
+    padding: 1.2rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1.2rem;
+}
+
+/* ADD MORE BUTTON */
+.add-btn {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 12px;
+    border: 1px dashed #6366f1;
+    background: transparent;
+    color: #6366f1;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+/* =========================
+   FORM — MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 0 12px;
+    }
+
+    form {
+        padding: 32px 20px;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+
+    select {
+        background-position: right 12px center;
+    }
+
+    .form-group,
+    .field-group {
+        margin-bottom: 18px;
+    }
+
+    button,
+    .submit-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 0.95rem;
+        border-radius: 999px;
+    }
+
+}

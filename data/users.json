@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Peehu",
+    "email": "pihus1412@gmail.com",
+    "degree": "btech",
+    "collegeName": "iitm",
+    "admissionYear": "2024",
+    "graduationYear": "2028",
+    "currentSemester": "4",
+    "twelfthStream": "Science",
+    "tenthPercent": "85",
+    "twelfthPercent": "82",
+    "hasExperience": "no",
+    "experiences": []
+  },
+  {
+    "name": "Pihu Sharma",
+    "email": "Peehuuhh@gmail.com",
+    "contact": "9891019398",
+    "linkedin": "https://linkedin.com/in/peehu14",
+    "degree": "Btech CSE",
+    "collegeName": "IITM College of Engineering, Janakpuri",
+    "admissionYear": "2024",
+    "graduationYear": "2028",
+    "currentSemester": "4",
+    "twelfthStream": "Science",
+    "tenthPercent": "85",
+    "twelfthPercent": "82",
+    "hasExperience": "yes",
+    "experiences": [
+      {
+        "company": "hackwithindia",
+        "role": "junior web developer ",
+        "from": "2024-09",
+        "to": "2025-01"
+      },
+      {
+        "company": "True Stories Podcast",
+        "role": "Data Analyst",
+        "from": "",
+        "to": ""
+      }
+    ]
+  }
+]

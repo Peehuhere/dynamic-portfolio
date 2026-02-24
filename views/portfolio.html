@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/portfolio.css" />
+
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <span class="logo">Portfolio</span>
+        <div class="nav-links">
+            <button data-target="intro">Intro</button>
+            <button data-target="education">Education</button>
+            <button data-target="skills">Skills</button>
+            <button data-target="experience">Experience</button>
+            <button data-target="contact">Contact</button>
+        </div>
+    </nav>
+
+    <!-- INTRO PAGE -->
+    <section id="intro" class="page active">
+        <div class="intro-card">
+            <p class="signature">
+                Curious mind. Building things that make sense.
+            </p>
+            <h1 id="name"></h1>
+
+            <p class="intro-line">
+                A <span id="semester-intro"></span> semester
+                <span class="highlight" id="stream"></span> student pursuing
+                <span class="highlight" id="degree"></span>
+            </p>
+
+            <p class="email" id="email"></p>
+
+            <a id="resumeLink" class="resume-btn" target="_blank">
+                View Resume
+            </a>
+
+            <div class="stats">
+                <div><strong>4</strong><span>Semester</span></div>
+                <div><strong>BTech</strong><span>Degree</span></div>
+                <div><strong>CSE</strong><span>Stream</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION PAGE -->
+    <section id="education" class="page">
+        <div class="edu-card">
+            <p class="edu-label">Education</p>
+
+            <h2 id="college"></h2>
+
+            <p class="edu-degree">
+                <span id="degree"></span> • <span id="eduYears"></span>
+            </p>
+
+            <p class="edu-sem" id="semester-edu"></p>
+
+            <div class="edu-divider"></div>
+
+            <p class="edu-school" id="school"></p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="page">
+        <div class="skills-card">
+            <h2>Skills</h2>
+
+            <!-- EMPTY STATE -->
+            <p id="noSkillsText" class="no-skills">No skills listed</p>
+
+            <!-- SKILLS GROUPS -->
+            <div id="skillsGroups" style="display: none;">
+                <div class="skills-group">
+                    <p class="skills-label">Core</p>
+                    <div id="coreSkills" class="skills-grid"></div>
+                </div>
+
+                <div class="skills-group">
+                    <p class="skills-label muted">Working knowledge</p>
+                    <div id="secondarySkills" class="skills-grid secondary"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- EXPERIENCE PAGE -->
+    <section id="experience" class="page">
+        <div class="exp-card-wrapper">
+            <p class="exp-label">Experience</p>
+
+            <div id="experienceList" class="exp-timeline"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+        <div class="contact-card">
+            <p class="contact-label">Contact</p>
+
+            <h2>Let’s Connect</h2>
+
+            <div class="contact-items">
+                <p>📧 <span id="contactEmail"></span></p>
+                <p>📞 <span id="contactPhone"></span></p>
+                <p>🔗 <a id="contactLinkedin" target="_blank">LinkedIn</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- USER NOT FOUND -->
+    <section id="not-found" class="page">
+        <div class="notfound-card">
+            <h1>Oops.</h1>
+            <p>
+                Sorry, no such user exists.<br />
+                Please check the username and try again.
+            </p>
+
+            <a href="/" class="resume-btn">
+                Go Back
+            </a>
+        </div>
+    </section>
+
+    <script src="/portfolio.js"></script>
+</body>
+
+</html>
