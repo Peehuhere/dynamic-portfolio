@@ -15,17 +15,22 @@ document.querySelectorAll("nav button").forEach(btn => {
 // =======================
 // GET USERNAME SAFELY
 // =======================
-const username = window.location.pathname.split("/").filter(Boolean)[0];
+const pathParts = window.location.pathname.split("/").filter(Boolean);
+const username = pathParts[pathParts.length - 1];
 
 // =======================
 // FETCH USER
 // =======================
+
+console.log("USERNAME:", username);
 fetch(`/api/user/${username}`)
   .then(res => {
     if (!res.ok) throw new Error("User not found");
     return res.json();
   })
   .then(user => {
+
+    console.log("USER OBJECT:", user);
     // ---------- INTRO ----------
     document.getElementById("contactEmail").textContent = user.email;
     document.getElementById("contactPhone").textContent = user.contact || "Not provided";
@@ -34,7 +39,8 @@ fetch(`/api/user/${username}`)
     const skillsGroups = document.getElementById("skillsGroups");
     const coreSkillsContainer = document.getElementById("coreSkills");
     const secondarySkillsContainer = document.getElementById("secondarySkills");
-
+    noSkillsText.style.display = "none";
+    skillsGroups.style.display = "none";
     coreSkillsContainer.innerHTML = "";
     secondarySkillsContainer.innerHTML = "";
 
@@ -55,9 +61,11 @@ fetch(`/api/user/${username}`)
         coreSkillsContainer.appendChild(pill);
       });
 
+      secondarySkillsContainer.classList.add("secondary");
+
       working.forEach(skill => {
         const pill = document.createElement("span");
-        pill.className = "skill-pill secondary";
+        pill.className = "skill-pill";
         pill.textContent = skill;
         secondarySkillsContainer.appendChild(pill);
       });
