@@ -80,6 +80,7 @@ app.get("/api/user/:username", (req, res) => {
 app.get("/:username", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "portfolio.html"));
 });
+console.log("NEW USER SUBMITTED:", userData);
 
 // =======================
 // START SERVER
